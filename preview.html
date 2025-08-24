@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemesis - Book Preview</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .preview-section {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--pure-black) 0%, var(--dark-gray) 100%);
+            padding: 120px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23dc143c" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .preview-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid rgba(220, 20, 60, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(220, 20, 60, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .preview-title {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .preview-subtitle {
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.8;
+        }
+
+        .preview-content {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--white);
+            text-align: justify;
+            position: relative;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .preview-content::before {
+            content: '"';
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            color: var(--primary-red);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.5;
+        }
+
+        .preview-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .preview-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .preview-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .chapter-number {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .preview-container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .preview-title {
+                font-size: 2rem;
+            }
+
+            .preview-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>NEMESIS</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#preorder">Pre-Order</a></li>
+                <li><a href="index.html#characters">Characters</a></li>
+                <li><a href="index.html#bookinfo">Book Info</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#credits">Credits</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="preview-section">
+        <div class="preview-container">
+            <div class="preview-header">
+                <h1 class="preview-title">NEMESIS</h1>
+                <p class="preview-subtitle">A Story of Vengeance and Redemption</p>
+            </div>
+            <div class="chapter-number">PREVUE</div>
+            <div class="preview-content">
+                <p>Rain hammered the broken roof. Water splashed across shattered glass and rusted tools.</p>
+                <p>Two kids stood in the dark, small frames trembling. One gripped a flashlight; its beam wavered with every shake. The other pressed a bloodied rag to his arm, teeth clenched, refusing to cry out.</p>
+                <p>Somewhere in the shadows, a third figure moved. Silent. Watching.</p>
+                <p>“We shouldn’t be here…” the first whispered.</p>                
+                <p>“You said we stick together. Always,” the other snapped, forcing his breath steady.</p>
+                <p>A loud bang rattled the doors. Both flinched. The flashlight jerked upward, catching dust drifting like ghosts.</p>
+                <p>The shadow stepped closer. No face. Just presence.</p>
+                <p>“What if they find us?”</p>
+                <p>A tense pause.</p>
+                <p>“They already have.”</p>
+                <p>The door creaked open. White light flooded the room. The kids froze. And vanished.</p>
+
+            </div>
+            <div class="preview-footer">
+                <div class="preview-buttons">
+                    <a href="https://www.amazon.com/NEMESIS-Mishal-Muhaiz-ebook/dp/B0FF6X1L4M" class="btn-primary">Read Full Book</a>
+                    <a href="index.html" class="btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
