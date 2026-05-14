@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMESIS — The Book</title>
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Grain Canvas -->
+    <canvas class="grain-canvas" id="grainCanvas"></canvas>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-bar" id="scrollBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo"><em>N</em>EMESIS</a>
+            <ul class="nav-links">
+                <li><a href="#order">Order</a></li>
+                <li><a href="#characters">Characters</a></li>
+                <li><a href="#bookinfo">Book Info</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#credits">Credits</a></li>
+                <li><a href="preview.html" class="nav-cta">Read Preview</a></li>
+            </ul>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="drawer" id="drawer">
+        <ul>
+            <li><a href="#order"      class="d-link">Order</a></li>
+            <li><a href="#characters" class="d-link">Characters</a></li>
+            <li><a href="#bookinfo"   class="d-link">Book Info</a></li>
+            <li><a href="#contact"    class="d-link">Contact</a></li>
+            <li><a href="#credits"    class="d-link">Credits</a></li>
+            <li><a href="preview.html" class="d-link">Read Preview</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════════════════════════════════
+         HERO — Pinned Book Opening Stage
+    ═══════════════════════════════════════════ -->
+    <section class="book-stage" id="hero">
+
+        <div class="stage-bg">
+            <div class="stage-vignette"></div>
+            <!-- Red beam that matches the cover art -->
+            <div class="stage-beam"></div>
+            <div class="stage-glow"></div>
+        </div>
+
+        <!-- Large ambient background word -->
+        <div class="ambient-word" id="ambientWord">NEMESIS</div>
+
+        <!-- THE 3-D BOOK -->
+        <div class="book-scene" id="bookScene">
+            <div class="book-wrap" id="bookWrap">
+
+                <!-- Back cover -->
+                <div class="book-back">
+                    <div class="back-inner">
+                        <div class="back-title">NEMESIS</div>
+                        <div class="back-author">MISHAL MUHAIZ</div>
+                    </div>
+                </div>
+
+                <!-- Page stack -->
+                <div class="book-pages">
+                    <div class="page pg1"></div>
+                    <div class="page pg2"></div>
+                    <div class="page pg3"></div>
+                    <div class="page pg4"></div>
+                    <div class="page pg5"></div>
+                    <div class="page pg6"></div>
+                </div>
+
+                <!-- Inside spread — shown after cover opens -->
+                <div class="book-inside" id="bookInside">
+                    <!-- Left page: epigraph -->
+                    <div class="inside-left">
+                        <div class="inside-paper"></div>
+                        <div class="inside-left-body">
+                            <div class="il-rule"></div>
+                            <p class="il-quote">"In the end, the shadow<br>you run from is always<br>the one you cast."</p>
+                            <div class="il-rule"></div>
+                            <p class="il-attr">— Mishal Muhaiz</p>
+                        </div>
+                    </div>
+                    <!-- Right page: title page -->
+                    <div class="inside-right">
+                        <div class="inside-paper"></div>
+                        <div class="inside-right-body">
+                            <p class="ir-eyebrow">A Novel</p>
+                            <h2 class="ir-title">NEMESIS</h2>
+                            <div class="ir-rule"></div>
+                            <p class="ir-author">Mishal Muhaiz</p>
+                            <p class="ir-spec">200 Pages · 18 Chapters</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FRONT COVER — rotates open on scroll -->
+                <div class="book-cover" id="bookCover">
+                    <!-- Front face: real cover art -->
+                    <div class="cover-front">
+                        <img src="cover.jpg" alt="Nemesis Book Cover" class="cover-img">
+                        <!-- Subtle overlay to preserve depth -->
+                        <div class="cover-overlay"></div>
+                        <!-- Corner ornaments -->
+                        <div class="orn orn-tl"></div>
+                        <div class="orn orn-tr"></div>
+                        <div class="orn orn-bl"></div>
+                        <div class="orn orn-br"></div>
+                    </div>
+                    <!-- Back face of cover (parchment, shown when flipped >90°) -->
+                    <div class="cover-back-face">
+                        <div class="cbf-paper"></div>
+                        <div class="cbf-label">NEMESIS</div>
+                    </div>
+                </div>
+
+                <!-- Spine -->
+                <div class="book-spine">
+                    <div class="spine-title">NEMESIS</div>
+                    <div class="spine-author">MISHAL MUHAIZ</div>
+                </div>
+
+            </div><!-- /book-wrap -->
+        </div><!-- /book-scene -->
+
+        <!-- Scroll cue -->
+        <div class="scroll-cue" id="scrollCue">
+            <div class="sc-line"></div>
+            <span>scroll to open</span>
+            <div class="sc-line"></div>
+        </div>
+
+    </section><!-- /hero -->
+
+    <!-- ═══════════════════════════════════════════
+         SITE MAIN — rises after book opens
+    ═══════════════════════════════════════════ -->
+    <main class="site-main" id="siteMain">
+
+        <!-- ▸ INTRO -->
+        <section class="s-intro" id="introSection">
+            <div class="paper-bg"></div>
+            <div class="ink-left"></div>
+            <div class="container">
+                <div class="intro-layout">
+                    <div class="intro-left">
+                        <div class="s-eyebrow">A Novel by Mishal Muhaiz</div>
+                        <h1 class="intro-headline">
+                            <span class="ih-line">The past</span>
+                            <span class="ih-line">is circling</span>
+                            <span class="ih-line accent">back.</span>
+                        </h1>
+                        <p class="intro-para">FBI agent Leo Veyne is drawn into a case that feels too personal — a string of precise, brutal crimes tied together by a silent manipulator named Silas. As the investigation deepens, it begins to unravel Leo himself.</p>
+                        <div class="intro-actions">
+                            <a href="#order"      class="btn-primary"><span>Order Now</span></a>
+                            <a href="preview.html" class="btn-ghost"><span>Read Preview</span></a>
+                        </div>
+                    </div>
+                    <div class="intro-right">
+                        <!-- Mini cover echo -->
+                        <div class="mini-cover-wrap">
+                            <img src="cover.jpg" alt="Nemesis" class="mini-cover">
+                            <div class="mini-cover-glow"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stats below -->
+                <div class="stat-row">
+                    <div class="s-stat">
+                        <div class="ss-num" data-count="200">0</div>
+                        <div class="ss-lbl">Pages</div>
+                    </div>
+                    <div class="stat-sep"></div>
+                    <div class="s-stat">
+                        <div class="ss-num" data-count="18">0</div>
+                        <div class="ss-lbl">Chapters</div>
+                    </div>
+                    <div class="stat-sep"></div>
+                    <div class="s-stat">
+                        <div class="ss-num ss-yr">2025</div>
+                        <div class="ss-lbl">Published</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ▸ ORDER -->
+        <section class="s-layer" id="order">
+            <div class="paper-bg dark"></div>
+            <div class="layer-tag">01</div>
+            <div class="container">
+                <div class="s-head">
+                    <div class="s-eyebrow">Available Now</div>
+                    <h2 class="s-title">Get Your Copy</h2>
+                    <div class="s-rule"></div>
+                </div>
+                <div class="order-grid">
+                    <div class="o-card">
+                        <div class="oc-type">Digital Edition</div>
+                        <div class="oc-price">$3.99</div>
+                        <ul class="oc-list">
+                            <li>Instant Download</li>
+                            <li>Kindle Compatible</li>
+                            <li>Read Anywhere</li>
+                        </ul>
+                        <a href="https://www.amazon.com/NEMESIS-Mishal-Muhaiz-ebook/dp/B0GSGY5SBV"
+                           target="_blank" class="btn-primary full"><span>Order Digital</span></a>
+                    </div>
+                    <div class="o-card featured">
+                        <div class="oc-badge">Most Popular</div>
+                        <div class="oc-type">Hardcopy Edition</div>
+                        <div class="oc-price">$3.99</div>
+                        <ul class="oc-list">
+                            <li>Physical Book</li>
+                            <li>Worldwide Shipping</li>
+                            <li>Collector's Item</li>
+                        </ul>
+                        <a href="https://www.amazon.com/NEMESIS-Mishal-Muhaiz-ebook/dp/B0GSGY5SBV"
+                           target="_blank" class="btn-primary full"><span>Order Physical</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ▸ CHARACTERS — Horizontal drag track -->
+        <section class="s-chars" id="characters">
+            <div class="paper-bg"></div>
+            <div class="layer-tag">02</div>
+            <div class="s-chars-head container">
+                <div class="s-eyebrow">The Players</div>
+                <h2 class="s-title">Characters &amp; Chapters</h2>
+                <div class="s-rule"></div>
+            </div>
+            <div class="chars-viewport" id="charsViewport">
+                <div class="chars-ribbon" id="charsRibbon">
+
+                    <div class="ch-card">
+                        <div class="chc-num">01</div>
+                        <div class="chc-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="chc-role">Protagonist</div>
+                        <h3 class="chc-name">Leo Veyne</h3>
+                        <p class="chc-bio">An FBI agent bound by duty yet haunted by his past, torn between justice and the ghosts of a friendship he can't outrun.</p>
+                    </div>
+
+                    <div class="ch-card">
+                        <div class="chc-num">02</div>
+                        <div class="chc-icon"><i class="fas fa-user-secret"></i></div>
+                        <div class="chc-role">Antagonist</div>
+                        <h3 class="chc-name">Rowan Vance</h3>
+                        <p class="chc-bio">A hardened survivor turned criminal mastermind, driven by loyalty twisted into vengeance and a hunger to prove his worth.</p>
+                    </div>
+
+                    <div class="ch-card">
+                        <div class="chc-num">03</div>
+                        <div class="chc-icon"><i class="fas fa-ghost"></i></div>
+                        <div class="chc-role">Catalyst</div>
+                        <h3 class="chc-name">~The Ghost</h3>
+                        <p class="chc-bio">A half-forgotten presence, neither friend nor foe, whose silence leaves more questions than answers.</p>
+                    </div>
+
+                    <div class="ch-card">
+                        <div class="chc-num">04</div>
+                        <div class="chc-icon"><i class="fas fa-theater-masks"></i></div>
+                        <div class="chc-role">Shadow</div>
+                        <h3 class="chc-name">Silas</h3>
+                        <p class="chc-bio">The silent manipulator behind a string of precise, brutal crimes. His motives remain shrouded until the very end.</p>
+                    </div>
+
+                    <!-- 18 Chapters tile -->
+                    <div class="ch-card chapters-tile">
+                        <div class="chc-num">XVIII</div>
+                        <div class="ct-label">Chapters</div>
+                        <div class="chapters-grid">
+                            <span>I</span><span>II</span><span>III</span><span>IV</span><span>V</span><span>VI</span>
+                            <span>VII</span><span>VIII</span><span>IX</span><span>X</span><span>XI</span><span>XII</span>
+                            <span>XIII</span><span>XIV</span><span>XV</span><span>XVI</span><span>XVII</span><span>XVIII</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="chars-indicator container">
+                <div class="ci-track"><div class="ci-fill" id="ciFill"></div></div>
+                <span class="ci-hint">← drag to explore →</span>
+            </div>
+        </section>
+
+        <!-- ▸ BOOK INFO -->
+        <section class="s-layer" id="bookinfo">
+            <div class="paper-bg dark"></div>
+            <div class="ink-right"></div>
+            <div class="layer-tag">03</div>
+            <div class="container">
+                <div class="s-head">
+                    <div class="s-eyebrow">The Work</div>
+                    <h2 class="s-title">Book Information</h2>
+                    <div class="s-rule"></div>
+                </div>
+                <div class="info-grid">
+                    <div class="ig-left">
+                        <!-- Cover alongside synopsis -->
+                        <div class="info-cover-wrap">
+                            <img src="cover.jpg" alt="Nemesis Cover" class="info-cover">
+                            <div class="info-cover-shadow"></div>
+                        </div>
+                    </div>
+                    <div class="ig-right">
+                        <p class="ig-lead">FBI agent Leo Veyne is drawn into a case that feels too personal — a string of precise, brutal crimes tied to a silent manipulator named Silas.</p>
+                        <p class="ig-body">As the investigation deepens, it begins to unravel Leo himself. The past is circling back, piece by piece. And in a world shaped by betrayal, the truth isn't just dangerous — it's personal.</p>
+                        <p class="ig-body"><em>NEMESIS</em> is a psychological thriller about identity, betrayal, and the quiet war between who we are and who we used to be.</p>
+                        <div class="id-grid">
+                            <div class="id-row"><span class="id-k">Genre</span><span class="id-v">Thriller · Psychological · Action</span></div>
+                            <div class="id-row"><span class="id-k">Pages</span><span class="id-v">200 (including cover)</span></div>
+                            <div class="id-row"><span class="id-k">Chapters</span><span class="id-v">18</span></div>
+                            <div class="id-row"><span class="id-k">Release</span><span class="id-v">September 01, 2025</span></div>
+                            <div class="id-row"><span class="id-k">ASIN</span><span class="id-v">B0FF6X1L4M</span></div>
+                            <div class="id-row"><span class="id-k">Publisher</span><span class="id-v">Self Published · Amazon Kindle</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ▸ CONTACT -->
+        <section class="s-layer" id="contact">
+            <div class="paper-bg"></div>
+            <div class="layer-tag">04</div>
+            <div class="container">
+                <div class="s-head">
+                    <div class="s-eyebrow">Reach Out</div>
+                    <h2 class="s-title">Get In Touch</h2>
+                    <div class="s-rule"></div>
+                </div>
+                <div class="contact-layout">
+                    <p class="contact-intro">Have questions about Nemesis? Want to share your thoughts? We'd love to hear from you.</p>
+                    <div class="contact-items">
+                        <a href="mailto:editeam.nemesis@gmail.com" class="c-item">
+                            <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                            <div><div class="ci-lbl">Email</div><div class="ci-val">editeam.nemesis@gmail.com</div></div>
+                            <i class="fas fa-arrow-right ci-arr"></i>
+                        </a>
+                        <a href="https://www.instagram.com/team.nemesis25/" target="_blank" class="c-item">
+                            <div class="ci-icon"><i class="fab fa-instagram"></i></div>
+                            <div><div class="ci-lbl">Instagram</div><div class="ci-val">@team.nemesis25</div></div>
+                            <i class="fas fa-arrow-right ci-arr"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@team.nemesis25" target="_blank" class="c-item">
+                            <div class="ci-icon"><i class="fab fa-tiktok"></i></div>
+                            <div><div class="ci-lbl">TikTok</div><div class="ci-val">@team.nemesis25</div></div>
+                            <i class="fas fa-arrow-right ci-arr"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ▸ CREDITS -->
+        <section class="s-layer" id="credits">
+            <div class="paper-bg dark"></div>
+            <div class="layer-tag">05</div>
+            <div class="container">
+                <div class="s-head">
+                    <div class="s-eyebrow">The Minds Behind It</div>
+                    <h2 class="s-title">Credits</h2>
+                    <div class="s-rule"></div>
+                </div>
+                <div class="author-card">
+                    <div class="ac-icon"><i class="fas fa-feather-alt"></i></div>
+                    <div class="ac-body">
+                        <div class="ac-role">Author &amp; Visionary</div>
+                        <div class="ac-name">Mishal Muhaiz</div>
+                        <p>Nemesis is a story of power, betrayal, and the consequences of every choice. It draws readers into a world where nothing is certain, alliances are fragile, and trust is a dangerous game. Every chapter pulls you deeper into a web of tension and intrigue — where the stakes are high and the lines between right and wrong are blurred.</p>
+                    </div>
+                </div>
+                <div class="crew-grid">
+                    <div class="crew-cell"><span class="crw-r">Co-Author</span><span class="crw-n">Hamdhan Mohamed</span></div>
+                    <div class="crew-cell"><span class="crw-r">Editor</span><span class="crw-n">Amaani Fahim</span></div>
+                    <div class="crew-cell"><span class="crw-r">Designer</span><span class="crw-n">Mishal Muhaiz</span></div>
+                    <div class="crew-cell"><span class="crw-r">Proofreader</span><span class="crw-n">Afra Shah</span></div>
+                    <div class="crew-cell"><span class="crw-r">Proofreader</span><span class="crw-n">Nabeel Jaldeen</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ▸ FOOTER -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="f-brand">
+                        <div class="f-logo"><em>N</em>EMESIS</div>
+                        <p>A story of friendship, betrayal, and a shadow of the past.</p>
+                        <div class="f-socials">
+                            <a href="https://www.tiktok.com/@team.nemesis25"   target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/team.nemesis25/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="mailto:editeam.nemesis@gmail.com"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="f-nav">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="#order">Order</a></li>
+                            <li><a href="#characters">Characters</a></li>
+                            <li><a href="#bookinfo">Book Info</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="preview.html">Read Preview</a></li>
+                        </ul>
+                    </div>
+                    <div class="f-nav">
+                        <h4>The Book</h4>
+                        <ul>
+                            <li>200 Pages</li>
+                            <li>18 Chapters</li>
+                            <li>ASIN: B0FF6X1L4M</li>
+                            <li>Amazon Kindle</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="f-bottom">
+                    <p>&copy; 2025 Nemesis · All rights reserved</p>
+                    <a href="preview.html" class="f-read">Read Preview <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
